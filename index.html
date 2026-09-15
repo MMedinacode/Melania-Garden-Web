@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melania Garden and Coffee — Vivero, cafetería y taller de pintar en Rancagua</title>
+<meta name="description" content="Melania Garden and Coffee, Camino Santa Elena 4800, Rancagua. Vivero, cafetería con helados artesanales y taller para pintar tu propio macetero. 4,7 ★ con 29 reseñas en Google.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#6FB5B8">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236FB5B8'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-size='38' fill='%23FCF8F0'%3EM%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Melania Garden and Coffee">
+<meta property="og:title" content="Melania Garden and Coffee — café entre plantas, en Rancagua">
+<meta property="og:description" content="Vivero, cafetería con helados artesanales y taller para pintar tu propio macetero. 4,7 ★ con 29 reseñas.">
+<meta property="og:url" content="https://mmedinacode.github.io/Melania-Garden-Web/">
+<meta property="og:image" content="https://mmedinacode.github.io/Melania-Garden-Web/fotos/hero-terraza.jpg">
+<meta property="og:image:alt" content="Terraza de Melania Garden bajo toldos, con guirnaldas y mesas">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Bitter:ital,wght@0,300;0,400;0,600;1,400&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader-maceta" aria-hidden="true">
+    <span class="hoja hoja-1"></span>
+    <span class="hoja hoja-2"></span>
+    <span class="hoja hoja-3"></span>
+    <span class="tiesto"></span>
+  </div>
+  <p class="loader-txt">Melania Garden</p>
+</div>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="head">
+  <div class="head-in">
+    <a class="brand" href="#inicio" data-tab="inicio" aria-label="Melania Garden and Coffee, ir al inicio">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span class="brand-txt"><strong>Melania</strong><em>Garden &amp; Coffee · Rancagua</em></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Secciones">
+      <ul class="nav-links">
+        <li><a href="#inicio"    data-tab="inicio" class="on">Inicio</a></li>
+        <li><a href="#nosotros"  data-tab="nosotros">Nosotros</a></li>
+        <li><a href="#carta"     data-tab="carta">Carta</a></li>
+        <li><a href="#resenas"   data-tab="resenas">Reseñas</a></li>
+        <li><a href="#redes"     data-tab="redes">Redes</a></li>
+        <li><a href="#visitanos" data-tab="visitanos">Visítanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════ INICIO ══════════════ -->
+<section class="tab-panel on" data-tab-panel="inicio" id="inicio">
+  <div class="hero">
+    <div class="hero-txt">
+      <p class="eyebrow">Camino Santa Elena 4800 · Rancagua</p>
+      <h1>Café entre plantas,<br><em>y pinta tu macetero.</em></h1>
+      <p class="hero-lead">
+        No es sólo una cafetería: es un <strong>vivero</strong>, una
+        <strong>heladería artesanal</strong> y un
+        <strong>taller para pintar tu propia cerámica</strong>, todo bajo
+        los mismos toldos.
+      </p>
+
+      <ul class="sellos" aria-label="Lo que hay en el lugar">
+        <li>Cafetería</li>
+        <li>Vivero</li>
+        <li>Helados artesanales</li>
+        <li>Taller de pintura</li>
+      </ul>
+
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#carta" data-tab="carta">Ver qué hay</a>
+        <a class="btn btn-ghost" href="#resenas" data-tab="resenas">Leer las reseñas</a>
+      </div>
+      <p class="hero-open">
+        <span class="dot" id="statusDot" aria-hidden="true"></span>
+        <span data-horario-estado>Todos los días de 11:00 a 21:00</span>
+      </p>
+    </div>
+    <figure class="hero-img">
+      <img src="fotos/hero-terraza.jpg" alt="Terraza de Melania Garden bajo toldos, con guirnaldas de luces, césped y mesas blancas" fetchpriority="high" decoding="async">
+      <figcaption class="hero-cap">La terraza, bajo los toldos</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <div class="cifras reveal stagger">
+      <div><b data-contar>4,7</b><span>★ en Google</span></div>
+      <div><b data-contar>29</b><span>reseñas</span></div>
+      <div><b>7</b><span>días a la semana</span></div>
+      <div><b>11:00</b><span>abrimos</span></div>
+    </div>
+
+    <div class="tri reveal stagger">
+      <article class="tri-card">
+        <h3>Pinta tu propio macetero</h3>
+        <p>Figuras y maceteros de cerámica en blanco, pinturas y pinceles
+           sobre la mesa del invernadero. “Una idea genial y entretenida”,
+           dice una reseña.</p>
+        <a href="#nosotros" data-tab="nosotros" class="lnk">Ver cómo es →</a>
+      </article>
+      <article class="tri-card">
+        <h3>Helados de sabores raros</h3>
+        <p>Artesanales y “de sabores novedosos”, según la clienta que dejó
+           la reseña más detallada. Vitrina completa a la vista.</p>
+        <a href="#carta" data-tab="carta" class="lnk">Ver la carta →</a>
+      </article>
+      <article class="tri-card">
+        <h3>Y te llevas la planta</h3>
+        <p>El vivero es parte del lugar: se puede recorrer el pasillo,
+           mirar y comprar. Café y planta en la misma visita.</p>
+        <a href="#visitanos" data-tab="visitanos" class="lnk">Cómo llegar →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ NOSOTROS ══════════════ -->
+<section class="tab-panel" data-tab-panel="nosotros" id="nosotros">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Nosotros</p>
+      <h2>Tres cosas<br>en el mismo patio</h2>
+      <p class="sec-lead">
+        Cafetería, vivero y taller. Se puede hacer una, dos o las tres.
+      </p>
+    </header>
+
+    <div class="split reveal">
+      <figure class="split-img">
+        <img src="fotos/taller.jpg" alt="Invernadero acristalado con mesas, plantas colgando y pinturas sobre la mesa" loading="lazy" decoding="async">
+        <figcaption>El invernadero donde se pinta</figcaption>
+      </figure>
+      <div class="split-txt">
+        <h3>Te sientas, pides algo y pintas</h3>
+        <p>
+          En el invernadero hay mesas con <strong>pinturas y pinceles</strong>,
+          y estanterías con <strong>maceteros y figuras de cerámica en
+          blanco</strong> esperando. Eliges una, la pintas y te la llevas.
+        </p>
+        <blockquote class="cita">
+          “Me pareció muy entretenida la oferta que incluye pintar tu propio
+          macetero.”
+          <cite>Ricardo Torrent, Local Guide con 92 reseñas</cite>
+        </blockquote>
+        <p class="nota-mano">
+          Conviene preguntar por disponibilidad antes de ir: las mesas del
+          taller son limitadas.
+        </p>
+      </div>
+    </div>
+
+    <div class="split split-rev reveal">
+      <figure class="split-img">
+        <img src="fotos/vivero.jpg" alt="Pasillo del vivero con plantas a ambos lados" loading="lazy" decoding="async">
+        <figcaption>El pasillo del vivero</figcaption>
+      </figure>
+      <div class="split-txt">
+        <h3>Un patio con toldos, césped y guirnaldas</h3>
+        <p>
+          Deck de madera, toldos que dan sombra, luces colgando y mesas
+          repartidas entre las plantas. Hay también
+          <strong>mesa y sillas para los niños</strong>.
+        </p>
+        <p>
+          El ambiente es lo que más nombran sus reseñas:
+          <em>“hermoso y relajante”</em>, <em>“un lugar muy tranquilo para
+          pasar un rato agradable y hacer una actividad diferente”</em>.
+        </p>
+        <a href="#resenas" data-tab="resenas" class="lnk">Leer las reseñas →</a>
+      </div>
+    </div>
+
+    <div class="gal reveal stagger">
+      <figure><img src="fotos/figura-pintando.jpg" alt="Figura de cerámica a medio pintar con pinceles y pinturas" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/figuras-ceramica.jpg" alt="Figuras de cerámica pintadas de colores" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/maceteros.jpg" alt="Estantería con maceteros de cerámica en blanco" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/vitrina-helados.jpg" alt="Vitrina de helados artesanales" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/mostrador.jpg" alt="Mostrador con pared turquesa y vitrina de pasteles" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/terraza-sillas.jpg" alt="Terraza con mesas y sillas infantiles de colores" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/terraza-deck.jpg" alt="Deck de madera con mesas bajo el toldo" loading="lazy" decoding="async"></figure>
+      <figure><img src="fotos/mesa-jardin.jpg" alt="Mesa de mimbre servida al aire libre" loading="lazy" decoding="async"></figure>
+    </div>
+    <p class="note">Todas las fotos son del propio local, de su ficha de Google Maps.</p>
+  </div>
+</section>
+
+<!-- ══════════════ CARTA ══════════════ -->
+<section class="tab-panel" data-tab-panel="carta" id="carta">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Carta</p>
+      <h2>Lo que hay</h2>
+      <p class="sec-lead">
+        Productos reales, confirmados en sus fotos y en sus reseñas.
+      </p>
+    </header>
+
+    <div class="aviso reveal">
+      <strong>Sobre los precios:</strong> Melania no tiene ninguna carta
+      publicada — ni impresa fotografiada, ni digital. Así que acá todo va
+      sin precio, en vez de con uno inventado. Google estima
+      <b>$5.000 a $10.000 por persona</b>, informado por 18 clientes.
+    </div>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Para hacer</h3>
+        <span class="carta-bloque-n">3 opciones</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item">
+          <img src="fotos/maceteros.jpg" alt="Maceteros de cerámica en blanco" loading="lazy" decoding="async">
+          <div><h4>Pintar un macetero</h4><p>Eliges uno en blanco, lo pintas en el invernadero y te lo llevas.</p></div>
+          <span class="price">Consultar</span></article>
+        <article class="menu-item">
+          <img src="fotos/figuras-ceramica.jpg" alt="Figuras de cerámica para pintar" loading="lazy" decoding="async">
+          <div><h4>Pintar una figura</h4><p>También hay figuras de cerámica, no sólo maceteros.</p></div>
+          <span class="price">Consultar</span></article>
+        <article class="menu-item">
+          <img src="fotos/vivero.jpg" alt="Pasillo del vivero" loading="lazy" decoding="async">
+          <div><h4>Plantas del vivero</h4><p>“Aprovechamos de ver plantas”, dice una reseña. Se pueden comprar.</p></div>
+          <span class="price">Consultar</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Helados y dulce</h3>
+        <span class="carta-bloque-n">3 opciones</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item">
+          <img src="fotos/vitrina-helados.jpg" alt="Vitrina de helados artesanales" loading="lazy" decoding="async">
+          <div><h4>Helados artesanales</h4><p>“De sabores novedosos”, según la reseña de Vanesa Bossio.</p></div>
+          <span class="price">Consultar</span></article>
+        <article class="menu-item">
+          <img src="fotos/mostrador.jpg" alt="Vitrina de pasteles en el mostrador" loading="lazy" decoding="async">
+          <div><h4>Pastelería</h4><p>Vitrina en el mostrador, a la vista.</p></div>
+          <span class="price">Consultar</span></article>
+        <article class="menu-item">
+          <img src="fotos/croissant-cafe.jpg" alt="Croissant servido con café" loading="lazy" decoding="async">
+          <div><h4>Croissant</h4><p>Visto en sus propias fotos.</p></div>
+          <span class="price">Consultar</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Para tomar</h3>
+        <span class="carta-bloque-n">3 opciones</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item"><div><h4>Café</h4><p>Es el "coffee" del nombre: se sirve en la terraza.</p></div><span class="price">Consultar</span></article>
+        <article class="menu-item">
+          <img src="fotos/tetera.jpg" alt="Taza y tetera servidas en la mesa" loading="lazy" decoding="async">
+          <div><h4>Té en tetera</h4><p>Visto en sus propias fotos.</p></div>
+          <span class="price">Consultar</span></article>
+        <article class="menu-item"><div><h4>Chocolate caliente</h4><p>Recomendado por Daniela Cid en su reseña.</p></div><span class="price">Consultar</span></article>
+      </div>
+    </section>
+
+    <section class="carta-bloque reveal">
+      <header class="carta-bloque-head">
+        <h3>Para comer</h3>
+        <span class="carta-bloque-n">2 opciones</span>
+      </header>
+      <div class="menu reveal stagger">
+        <article class="menu-item">
+          <img src="fotos/desayuno.jpg" alt="Tostada, bowl y jugo servidos en la mesa" loading="lazy" decoding="async">
+          <div><h4>Desayunos</h4><p>“Ayer fui a desayunar y me encantó”, dice una reseña.</p></div>
+          <span class="price">Consultar</span></article>
+        <article class="menu-item">
+          <img src="fotos/mesa-jardin.jpg" alt="Mesa servida al aire libre" loading="lazy" decoding="async">
+          <div><h4>Bowls y tostadas</h4><p>Vistos en sus propias fotos.</p></div>
+          <span class="price">Consultar</span></article>
+      </div>
+    </section>
+
+    <p class="note">
+      Productos confirmados en sus fotos y reseñas de Google. Conviene
+      confirmar precios y disponibilidad en el local.
+    </p>
+    <!--
+      ⚠️ PLACEHOLDER MARCADO — NINGÚN PRECIO CONSTA.
+      Melania no publica carta en ninguna parte: ni impresa fotografiada en
+      su ficha, ni digital, ni destacados de Google. Todo va "Consultar" a
+      propósito. Falta también saber cuánto cuesta pintar un macetero, que
+      es lo que más gente pregunta según sus reseñas.
+    -->
+  </div>
+</section>
+
+<!-- ══════════════ RESEÑAS ══════════════ -->
+<section class="tab-panel" data-tab-panel="resenas" id="resenas">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Reseñas</p>
+      <h2>4,7 ★ · 29 reseñas</h2>
+      <p class="sec-lead">Reales, copiadas tal cual de su ficha de Google Maps.</p>
+    </header>
+
+    <div class="revs reveal stagger">
+      <blockquote class="rev">
+        <p class="stars" aria-label="5 de 5 estrellas">★★★★★</p>
+        <p>Ayer fui a desayunar y me encantó. Es un lugar lindo, acogedor, con una atención impecable, y lo más importante todo estaba delicioso y a buen precio. Tienen helados artesanales de sabores novedosos, que volveré a probar</p>
+        <footer><b>Vanesa Bossio</b><span>Local Guide · 251 reseñas</span></footer>
+      </blockquote>
+
+      <blockquote class="rev">
+        <p class="stars" aria-label="5 de 5 estrellas">★★★★★</p>
+        <p>Me gustó mucho el lugar, la atención muy bien y aprovechamos de ver plantas. Me pareció muy entretenida la oferta que incluye pintar tu propio macetero.</p>
+        <footer><b>Ricardo Torrent</b><span>Local Guide · 92 reseñas</span></footer>
+      </blockquote>
+
+      <blockquote class="rev">
+        <p class="stars" aria-label="5 de 5 estrellas">★★★★★</p>
+        <p>Excelente atención, rica comida y múltiples opciones como pintar o comprar plantas. Definitivamente volveré! Recomiendo el chocolate caliente!</p>
+        <footer><b>Daniela cid</b><span>Local Guide · 35 reseñas</span></footer>
+      </blockquote>
+    </div>
+
+    <div class="rev-cta reveal">
+      <a class="btn btn-solid" href="https://search.google.com/local/reviews?placeid=ChIJ8VTkTQBDY5YRBa69iKhD-L8" target="_blank" rel="noopener">Leer las 29 reseñas</a>
+      <a class="btn btn-ghost" href="https://search.google.com/local/writereview?placeid=ChIJ8VTkTQBDY5YRBa69iKhD-L8" target="_blank" rel="noopener">Dejar una reseña</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ REDES ══════════════ -->
+<section class="tab-panel" data-tab-panel="redes" id="redes">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Redes</p>
+      <h2>Dónde encontrarnos</h2>
+      <p class="sec-lead">Sólo lo verificado. Ningún perfil inventado.</p>
+    </header>
+
+    <div class="redes">
+      <article class="red-card reveal">
+        <a class="red-card-head" href="https://www.google.com/maps/search/?api=1&query=Melania%20Garden%20and%20Coffee&query_place_id=ChIJ8VTkTQBDY5YRBa69iKhD-L8" target="_blank" rel="noopener">
+          <span class="red-logo red-logo-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C7.31 0 3.5 3.81 3.5 8.5c0 6.38 8.5 15.5 8.5 15.5s8.5-9.12 8.5-15.5C20.5 3.81 16.69 0 12 0zm0 11.6a3.1 3.1 0 110-6.2 3.1 3.1 0 010 6.2z"/></svg></span>
+          <span class="red-card-txt">
+            <b>Ficha en Google Maps</b>
+            <em>4,7 ★ · 29 reseñas</em>
+          </span>
+          <span class="red-card-cta">Abrir →</span>
+        </a>
+        <a class="red-grid" href="https://www.google.com/maps/search/?api=1&query=Melania%20Garden%20and%20Coffee&query_place_id=ChIJ8VTkTQBDY5YRBa69iKhD-L8" target="_blank" rel="noopener"
+           data-cta="Ver la ficha" aria-label="Abrir la ficha de Melania Garden en Google Maps">
+          <figure><img src="fotos/hero-terraza.jpg" alt="La terraza bajo toldos" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/taller.jpg" alt="El invernadero donde se pinta" loading="lazy" decoding="async"></figure>
+          <figure><img src="fotos/vitrina-helados.jpg" alt="Vitrina de helados artesanales" loading="lazy" decoding="async"></figure>
+        </a>
+        <p class="red-pie">Ojo: su ficha no tiene teléfono y no está reclamada.</p>
+      </article>
+    </div>
+
+    <!--
+      ⚠️ SIN REDES NI TELÉFONO VERIFICADOS.
+      · Instagram / TikTok: no buscados todavía. NO inventar handle.
+      · Teléfono: su ficha no publica ninguno ("Añadir número de teléfono").
+      · La ficha ni siquiera está reclamada por el dueño.
+      Por eso a la derecha queda sólo el "volver arriba".
+      Sin delivery: su ficha declara SÓLO consumo en el lugar.
+    -->
+    <div class="aviso reveal">
+      <strong>Lo que más les serviría publicar:</strong> hoy no hay dónde
+      leer <b>cómo funciona el taller</b> — cuánto cuesta pintar, cuánto
+      dura el turno o si hay que reservar. Es la pregunta que más aparece en
+      sus reseñas, y una clienta se llevó un mal rato justamente por no
+      saber esa regla de antemano. Tampoco tienen teléfono publicado ni la
+      ficha reclamada.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VISÍTANOS ══════════════ -->
+<section class="tab-panel" data-tab-panel="visitanos" id="visitanos">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Visítanos</p>
+      <h2>Camino Santa Elena 4800</h2>
+    </header>
+
+    <div class="visit reveal">
+      <div class="visit-info">
+        <div class="vblock">
+          <h3>Dirección</h3>
+          <p>Camino Santa Elena 4800<br>Rancagua, Región de O'Higgins</p>
+          <p class="sub">Plus Code V638+86</p>
+        </div>
+
+        <div class="vblock">
+          <h3>Horario</h3>
+          <p class="estado"><span class="dot" aria-hidden="true"></span><span data-horario-estado>Todos los días de 11:00 a 21:00</span></p>
+          <ul class="horario horario-semana" id="horario-lista" data-horario-semana>
+            <li data-dia="1"><span>Lunes</span><b>11:00 – 21:00</b></li>
+            <li data-dia="2"><span>Martes</span><b>11:00 – 21:00</b></li>
+            <li data-dia="3"><span>Miércoles</span><b>11:00 – 21:00</b></li>
+            <li data-dia="4"><span>Jueves</span><b>11:00 – 21:00</b></li>
+            <li data-dia="5"><span>Viernes</span><b>11:00 – 21:00</b></li>
+            <li data-dia="6"><span>Sábado</span><b>11:00 – 21:00</b></li>
+            <li data-dia="0"><span>Domingo</span><b>11:00 – 21:00</b></li>
+          </ul>
+          <p class="sub">Horario de su ficha de Google Maps, 15-09-2026.</p>
+        </div>
+
+        <div class="vblock">
+          <h3>Contacto</h3>
+          <div class="vtel vtel-sin">
+            <span class="vtel-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+            </span>
+            <span class="vtel-txt">
+              <b>Sin teléfono publicado</b>
+              <em>Google no tiene ninguno registrado para este local</em>
+            </span>
+          </div>
+          <!-- ⚠️ No se inventa ningún número ni handle: su ficha no publica
+               teléfono y no se buscó/confirmó ninguna red social. -->
+        </div>
+
+        <div class="vblock">
+          <h3>Cómo se puede pedir</h3>
+          <ul class="vpedir">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v2H3V5zm2 4h14l-1 5h-4v6h-2v-6H6L5 9zm-1 12h16v2H4v-2z"/></svg> Sólo consumo en el lugar</li>
+          </ul>
+          <p class="sub">
+            Servicio declarado en su ficha de Google. No tienen para llevar
+            ni delivery — es un lugar para quedarse.
+          </p>
+        </div>
+
+        <div class="vblock vblock-cta">
+          <a class="btn btn-solid" href="https://www.google.com/maps/dir/?api=1&destination=Melania%20Garden%20and%20Coffee%20Rancagua&destination_place_id=ChIJ8VTkTQBDY5YRBa69iKhD-L8" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn-ghost" href="https://waze.com/ul?ll=-34.1467413,-70.7844108&navigate=yes" target="_blank" rel="noopener">Ir con Waze</a>
+        </div>
+      </div>
+
+      <div class="visit-map">
+        <!-- ⚠️ SIN loading="lazy": vive en pestaña display:none y no cargaría. -->
+        <iframe
+          title="Mapa de Melania Garden and Coffee en Camino Santa Elena 4800, Rancagua"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300!2d-70.7844108!3d-34.1467413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966343004de454f1%3A0xbff843a888bdae05!2sMelania%20Garden%20and%20Coffee!5e0!3m2!1ses!2scl!4v1757900000000!5m2!1ses!2scl"
+          width="100%" height="100%" style="border:0" allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Flotantes. Este local NO tiene teléfono ni redes verificadas, así que a
+     la derecha queda sólo el "volver arriba". No se inventa ninguno.
+     Izquierda libre para delivery: su ficha declara SÓLO consumo en el lugar. -->
+<div class="float float-right">
+  <button class="fab fab-top" id="toTop" data-label="Volver arriba" aria-label="Volver arriba"
+    style="background:var(--agua-osc);color:#fff"><span aria-hidden="true">↑</span></button>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <p class="foot-brand">Melania Garden</p>
+      <p>Camino Santa Elena 4800 · Rancagua, O'Higgins</p>
+      <p data-horario-resumen>Todos los días 11:00 – 21:00</p>
+    </div>
+    <div class="foot-demo">
+      <p><strong>Esta es una demo.</strong> No es el sitio oficial de Melania Garden and Coffee.</p>
+      <p>Hecha con datos públicos reales de su ficha de Google Maps
+         (verificados el 15-09-2026) para mostrarle al local cómo se vería
+         su página web.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.HORARIO = {
+  dias: ["11:00 - 21:00","11:00 - 21:00","11:00 - 21:00","11:00 - 21:00",
+         "11:00 - 21:00","11:00 - 21:00","11:00 - 21:00"],
+  fuente: "Google Maps, 15-09-2026"
+};
+/* window.REDES no se declara: no hay ninguna cuenta verificada. */
+</script>
+
+<script src="script.js"></script>
+<script src="vida.js"></script>
+<script src="carta-fotos.js"></script>
+<script src="carrito.js"></script>
+<script src="horario.js"></script>
+<script src="redes.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+/* ════════════════════════════════════════════════════════════════
+   Melania Garden and Coffee — Camino Santa Elena 4800, Rancagua
+   Identidad: no es sólo una cafetería — es vivero + heladería + taller de
+   pintar cerámica. Los colores están muestreados con Pillow de sus fotos:
+   el turquesa es la pared de su mostrador, el lima son sus sillas
+   infantiles y las plantas, y la madera es el deck de su terraza.
+   Tipografías: Fredoka (display, redondeada y amable, como el taller y las
+   mesas de niños) · Bitter (texto) · Nanum Pen Script (acentos, como algo
+   escrito a mano en una etiqueta de vivero).
+   Las tres verificadas como NO usadas en ningún otro proyecto.
+   ════════════════════════════════════════════════════════════════ */
+
+:root{
+  --agua:#6FB5B8;        /* turquesa del mostrador — color de marca */
+  --agua-cl:#B7D6D8;     /* el tono exacto muestreado de esa pared */
+  --agua-osc:#35707A;
+  --lima:#C3D95E;        /* sus sillas infantiles y las plantas */
+  --lima-osc:#7E9328;
+  --madera:#6E5243;      /* el deck de la terraza */
+  --crema:#FCF8F0;
+  --papel:#FFFFFF;
+  --tinta:#2F2A24;
+  --gris:#6E665C;
+  --linea:#E4DDCF;
+
+  --r:18px;
+  --r-s:11px;
+  --sombra:0 1px 2px rgba(47,42,36,.05), 0 10px 28px -16px rgba(53,112,122,.3);
+  --sombra-alta:0 2px 8px rgba(47,42,36,.08), 0 26px 52px -24px rgba(53,112,122,.42);
+  --fx:cubic-bezier(.22,.8,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;background:var(--crema);color:var(--tinta);
+  font-family:"Bitter",Georgia,serif;
+  font-size:16.5px;line-height:1.7;overflow-x:hidden;font-weight:300;
+}
+
+/* height:auto es obligatorio: si no, un atributo height del <img> le gana
+   al aspect-ratio del CSS y revienta el hero en mobile. */
+img{max-width:100%;display:block;height:auto}
+a{color:var(--agua-osc);text-underline-offset:3px}
+
+h1,h2,h3,h4{
+  font-family:"Fredoka",-apple-system,sans-serif;font-weight:600;
+  color:var(--tinta);line-height:1.15;margin:0 0 .5em;
+}
+
+.wrap{width:min(1160px,100%);margin-inline:auto;padding-inline:20px}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--agua-osc);
+  color:#fff;padding:12px 18px;border-radius:0 0 var(--r-s) 0}
+.skip:focus{left:0}
+
+/* ─────────── Loader: una plantita creciendo del tiesto ─────────── */
+.loader{
+  position:fixed;inset:0;z-index:2000;background:var(--agua);
+  display:grid;place-content:center;justify-items:center;gap:16px;
+  transition:opacity .34s var(--fx),visibility .34s var(--fx);
+}
+.loader.off{opacity:0;visibility:hidden}
+.loader-maceta{position:relative;width:86px;height:92px}
+.tiesto{
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:52px;height:38px;background:var(--crema);
+  border-radius:4px 4px 14px 14px;
+  animation:brotar .45s var(--fx) both;
+}
+.hoja{
+  position:absolute;bottom:34px;left:50%;
+  width:22px;height:30px;background:var(--lima);
+  border-radius:0 100% 0 100%;transform-origin:bottom center;
+  animation:brotar .5s var(--fx) both;
+}
+.hoja-1{transform:translateX(-50%) rotate(0deg);animation-delay:.18s}
+.hoja-2{transform:translateX(-116%) rotate(-42deg);animation-delay:.3s}
+.hoja-3{transform:translateX(16%) rotate(42deg);animation-delay:.42s}
+@keyframes brotar{from{opacity:0;transform:translateX(-50%) scale(.3)}}
+.loader-txt{
+  margin:0;font-family:"Nanum Pen Script",cursive;font-size:36px;
+  color:var(--crema);animation:brotar2 .5s .55s var(--fx) both;
+}
+@keyframes brotar2{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ─────────── Cabecera ─────────── */
+.head{
+  position:sticky;top:0;z-index:900;
+  background:color-mix(in srgb,var(--crema) 90%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--linea);
+}
+.head-in{width:min(1160px,100%);margin-inline:auto;padding:0 20px;
+  min-height:70px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand-mark{
+  width:42px;height:42px;flex:none;border-radius:50% 50% 14px 14px;
+  background:var(--agua);color:var(--crema);
+  font-family:"Fredoka",sans-serif;font-weight:600;font-size:21px;
+  display:grid;place-content:center;
+  transition:transform .3s var(--fx),background .3s var(--fx);
+}
+.brand:hover .brand-mark{transform:translateY(-2px) scale(1.06);background:var(--agua-osc)}
+.brand-txt{display:flex;flex-direction:column;line-height:1.2}
+.brand-txt strong{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:600}
+.brand-txt em{font-style:normal;font-size:10.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gris);font-weight:500}
+
+.nav-links{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:10px 13px;min-height:44px;line-height:24px;
+  text-decoration:none;color:var(--gris);font-weight:400;font-size:15px;
+  border-radius:var(--r-s);position:relative;font-family:"Fredoka",sans-serif;
+  transition:color .22s var(--fx),background .22s var(--fx)}
+.nav-links a::after{content:"";position:absolute;left:13px;right:13px;bottom:7px;height:3px;
+  background:var(--lima);border-radius:3px;transform:scaleX(0);transform-origin:left;
+  transition:transform .28s var(--fx)}
+.nav-links a:hover{color:var(--tinta);background:rgba(111,181,184,.16)}
+.nav-links a:hover::after,.nav-links a.on::after{transform:scaleX(1)}
+.nav-links a.on{color:var(--agua-osc);font-weight:600}
+
+.burger{display:none;order:3;width:44px;height:44px;padding:11px;background:none;
+  border:1px solid var(--linea);border-radius:var(--r-s);cursor:pointer;
+  flex-direction:column;justify-content:space-between}
+.burger span{display:block;height:2px;width:100%;background:var(--agua-osc);border-radius:2px;
+  transition:transform .3s var(--fx),opacity .2s var(--fx)}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+/* ─────────── Paneles ─────────── */
+.tab-panel{display:none}
+.tab-panel.on{display:block;animation:fade .42s var(--fx) both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ─────────── Hero partido ─────────── */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  gap:clamp(24px,4vw,54px);width:min(1160px,100%);margin-inline:auto;
+  padding:clamp(34px,5vw,66px) 20px clamp(26px,3vw,40px)}
+.eyebrow{margin:0 0 16px;font-size:11.5px;letter-spacing:.18em;font-weight:600;
+  text-transform:uppercase;color:var(--agua-osc);font-family:"Fredoka",sans-serif}
+.hero h1{font-size:clamp(36px,5.8vw,60px);margin-bottom:.3em;line-height:1.1}
+.hero h1 em{font-style:normal;font-family:"Nanum Pen Script",cursive;
+  color:var(--lima-osc);font-size:1.3em}
+.hero-lead{font-size:clamp(16px,1.55vw,18px);color:var(--gris);max-width:33em;margin:0 0 22px}
+.hero-lead strong{color:var(--tinta);font-weight:600}
+
+/* Los cuatro sellos: las cuatro cosas que son a la vez */
+.sellos{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 26px;padding:0}
+.sellos li{
+  background:var(--agua-cl);color:var(--tinta);
+  border:1px solid var(--agua);border-radius:99px;
+  padding:6px 15px;font-size:14px;font-weight:500;
+  font-family:"Fredoka",sans-serif;
+  animation:sello .45s var(--fx) both;
+}
+.sellos li:nth-child(1){animation-delay:.05s}
+.sellos li:nth-child(2){animation-delay:.13s;background:#DCE9A8;border-color:var(--lima)}
+.sellos li:nth-child(3){animation-delay:.21s}
+.sellos li:nth-child(4){animation-delay:.29s;background:#DCE9A8;border-color:var(--lima)}
+@keyframes sello{from{opacity:0;transform:translateY(8px) scale(.9)}to{opacity:1;transform:none}}
+
+.hero-cta{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:20px}
+.hero-open{display:flex;align-items:center;gap:9px;margin:0;font-size:15px;color:var(--gris)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--lima-osc)}
+
+.hero-img{margin:0;position:relative}
+.hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;
+  border-radius:var(--r);box-shadow:var(--sombra-alta)}
+.hero-cap{position:absolute;left:14px;bottom:14px;
+  background:color-mix(in srgb,var(--madera) 92%,transparent);color:var(--crema);
+  font-size:12.5px;padding:7px 13px;border-radius:99px;letter-spacing:.03em}
+
+/* ─────────── Cifras ─────────── */
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;
+  margin:clamp(34px,4.5vw,54px) 0 0;border-top:1px solid var(--linea);
+  border-bottom:1px solid var(--linea);padding:24px 0}
+.cifras div{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.15}
+.cifras b{font-family:"Fredoka",sans-serif;font-size:32px;font-weight:600;color:var(--agua-osc)}
+.cifras span{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gris);margin-top:5px;font-weight:600;font-family:"Fredoka",sans-serif}
+
+/* ─────────── Tríptico ─────────── */
+.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px;
+  padding:clamp(34px,5vw,58px) 0}
+.tri-card{background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);
+  padding:26px 24px;box-shadow:var(--sombra);
+  transition:transform .3s var(--fx),box-shadow .3s var(--fx)}
+.tri-card:hover{transform:translateY(-4px);box-shadow:var(--sombra-alta)}
+.tri-card h3{font-size:21px}
+.tri-card p{margin:0 0 14px;color:var(--gris);font-size:15.5px}
+.lnk{font-family:"Fredoka",sans-serif;font-weight:600;font-size:14.5px;
+  color:var(--agua-osc);text-decoration:none;
+  border-bottom:2px solid var(--lima);padding-bottom:1px}
+.lnk:hover{color:var(--lima-osc)}
+
+/* ─────────── Secciones ─────────── */
+.sec-head{padding:clamp(34px,5vw,62px) 0 8px;max-width:44rem}
+.sec-head h2{font-size:clamp(30px,4.4vw,46px)}
+.sec-lead{color:var(--gris);font-size:17px;margin:0}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3.5vw,46px);
+  align-items:center;padding:clamp(26px,4vw,48px) 0}
+.split-rev .split-img{order:2}
+.split-img{margin:0}
+.split-img img{width:100%;aspect-ratio:4/3;object-fit:cover;
+  border-radius:var(--r);box-shadow:var(--sombra)}
+.split-img figcaption{margin-top:9px;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gris);font-weight:600;font-family:"Fredoka",sans-serif}
+.split-txt h3{font-size:clamp(22px,2.7vw,30px)}
+.split-txt p{color:var(--gris);margin:0 0 15px}
+.split-txt strong{color:var(--tinta);font-weight:600}
+
+.cita{margin:0 0 18px;padding:20px 22px;background:var(--agua-cl);
+  border-radius:var(--r-s);font-family:"Nanum Pen Script",cursive;
+  font-size:26px;line-height:1.35;color:var(--tinta)}
+.cita cite{display:block;margin-top:8px;font-family:"Fredoka",sans-serif;
+  font-style:normal;font-weight:600;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gris)}
+/* Nota escrita a mano, como una etiqueta de vivero */
+.nota-mano{font-family:"Nanum Pen Script",cursive;font-size:22px;
+  color:var(--lima-osc);margin:0}
+
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;padding-top:12px}
+.gal figure{margin:0;overflow:hidden;border-radius:var(--r-s);box-shadow:var(--sombra)}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .55s var(--fx)}
+.gal figure:hover img{transform:scale(1.06)}
+.note{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);
+  margin:16px 0 clamp(34px,5vw,60px);font-weight:600;font-family:"Fredoka",sans-serif}
+
+.aviso{background:var(--papel);border-left:4px solid var(--lima);
+  border-radius:0 var(--r-s) var(--r-s) 0;padding:17px 20px;margin:20px 0;
+  color:var(--gris);font-size:15.5px;box-shadow:var(--sombra)}
+.aviso strong{color:var(--tinta)}
+.aviso b{color:var(--agua-osc)}
+
+/* ─────────── Carta ─────────── */
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.menu-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+  background:var(--crema);border:1px solid var(--linea);border-radius:var(--r-s);
+  padding:13px 16px;
+  transition:transform .26s var(--fx),box-shadow .26s var(--fx),border-color .26s var(--fx)}
+.menu-item:hover{transform:translateY(-2px);box-shadow:var(--sombra);border-color:var(--agua)}
+.menu-item img{width:62px;height:62px;border-radius:10px;object-fit:cover;flex:none}
+.menu-item h4{margin:0 0 2px;font-size:18px}
+.menu-item p{margin:0;font-size:13.5px;color:var(--gris);line-height:1.45}
+.price{font-family:"Fredoka",sans-serif;font-weight:600;font-size:14px;color:var(--gris);
+  white-space:nowrap;background:var(--papel);border:1px solid var(--linea);
+  padding:5px 11px;border-radius:99px}
+
+/* ─────────── Reseñas ─────────── */
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:16px;padding-top:24px}
+.rev{margin:0;background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);
+  padding:24px 22px;box-shadow:var(--sombra);display:flex;flex-direction:column;
+  transition:transform .3s var(--fx),box-shadow .3s var(--fx)}
+.rev:hover{transform:translateY(-3px);box-shadow:var(--sombra-alta)}
+.stars{color:var(--lima-osc);letter-spacing:.14em;margin:0 0 10px;font-size:16px}
+.rev p:not(.stars){margin:0 0 18px;font-size:16px}
+.rev footer{margin-top:auto;display:flex;flex-direction:column;
+  border-top:1px solid var(--linea);padding-top:12px}
+.rev footer b{font-family:"Fredoka",sans-serif;font-weight:600;font-size:16px}
+.rev footer span{font-size:13px;color:var(--gris)}
+.rev-cta{display:flex;gap:11px;flex-wrap:wrap;padding:30px 0 clamp(34px,5vw,60px)}
+
+/* ─────────── Visítanos ─────────── */
+.visit{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(22px,3.5vw,44px);
+  align-items:start;padding:24px 0 clamp(36px,5vw,64px)}
+.visit-info{display:flex;flex-direction:column}
+/* Sin recuadros: bloques apilados separados por una línea de 1px. */
+.vblock{padding:19px 0;border-bottom:1px solid var(--linea)}
+.vblock:first-child{padding-top:0}
+.vblock h3{font-family:"Fredoka",sans-serif;font-weight:600;font-size:11.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--agua-osc);margin:0 0 8px}
+.vblock p{margin:0 0 4px}
+.vblock .sub{font-size:13.5px;color:var(--gris)}
+/* :not(.btn) para que .btn-solid no pierda su color de texto por
+   especificidad: ese bug ya dejó un botón invisible en Río Deva. */
+.vblock a:not(.btn){color:var(--agua-osc)}
+.vblock-cta{border-bottom:0;display:flex;gap:10px;flex-wrap:wrap;padding-top:22px}
+.estado{display:flex;align-items:center;gap:9px;margin-bottom:12px !important;font-weight:600}
+
+.horario{list-style:none;margin:0 0 9px;padding:0}
+.horario li{display:flex;justify-content:space-between;gap:14px;padding:6px 9px;
+  border-radius:7px;font-size:15.5px}
+.horario li span{color:var(--gris)}
+.horario li b{font-weight:600;font-variant-numeric:tabular-nums}
+.horario li.hoy{background:rgba(195,217,94,.35)}
+.horario li.hoy span,.horario li.hoy b{color:var(--tinta);font-weight:700}
+.cerrado{color:var(--madera) !important}
+
+.visit-map{height:clamp(330px,52vh,520px);border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--sombra-alta);border:1px solid var(--linea)}
+.visit-map iframe{width:100%;height:100%;display:block}
+
+/* ─────────── Botones ─────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+  padding:12px 24px;border-radius:99px;font-family:"Fredoka",sans-serif;
+  font-weight:600;font-size:15.5px;text-decoration:none;cursor:pointer;
+  border:2px solid transparent;
+  transition:transform .16s var(--fx),box-shadow .26s var(--fx),background .22s var(--fx)}
+.btn-solid{background:var(--agua-osc);color:var(--crema);
+  box-shadow:0 8px 22px -11px rgba(53,112,122,.9)}
+.btn-solid:hover{background:#295962}
+.btn-ghost{background:transparent;color:var(--agua-osc);border-color:var(--linea)}
+.btn-ghost:hover{border-color:var(--agua);background:rgba(111,181,184,.14)}
+.btn:active{transform:scale(.96)}
+
+/* ─────────── Pie ─────────── */
+.foot{background:var(--madera);color:var(--crema);padding:clamp(34px,4.5vw,54px) 0;
+  border-top:6px solid var(--lima)}
+.foot-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.foot p{margin:0 0 5px;font-size:15px}
+.foot a{color:var(--lima)}
+.foot-brand{font-family:"Nanum Pen Script",cursive;font-size:40px;color:var(--lima);
+  margin-bottom:4px !important;line-height:1}
+.foot-demo{font-size:14px;opacity:.88;border-left:2px solid rgba(195,217,94,.45);padding-left:18px}
+.foot-demo strong{color:var(--lima)}
+
+/* ─────────── Reveal ─────────── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--fx),transform .6s var(--fx)}
+.reveal.seen{opacity:1;transform:none}
+
+/* ─────────── Mobile ─────────── */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:26px}
+  .hero-img{order:-1}
+  .hero-img img{aspect-ratio:16/10}
+  .split,.split-rev{grid-template-columns:1fr}
+  .split-rev .split-img{order:0}
+  .visit{grid-template-columns:1fr}
+  .visit-map{height:320px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .burger{display:flex}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--crema);
+    border-bottom:1px solid var(--linea);box-shadow:var(--sombra-alta);
+    max-height:0;overflow:hidden;visibility:hidden;
+    transition:max-height .36s var(--fx),visibility .36s var(--fx)}
+  .nav.open{max-height:70vh;overflow-y:auto;visibility:visible}
+  .nav-links{flex-direction:column;gap:0;padding:8px 14px 16px}
+  .nav-links a{padding:14px 12px;font-size:17px;border-bottom:1px solid var(--linea)}
+  .nav-links li:last-child a{border-bottom:0}
+  .nav-links a::after{display:none}
+  .nav-links a.on{background:rgba(195,217,94,.3)}
+  .head-in{flex-wrap:wrap;position:relative}
+  .cifras{grid-template-columns:repeat(2,1fr);gap:18px 8px}
+  .hero-cta .btn,.vblock-cta .btn,.rev-cta .btn{flex:1 1 auto}
+  .menu-item{grid-template-columns:auto 1fr;row-gap:8px}
+  .menu-item .price{grid-column:2;justify-self:start}
+  .gal{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:400px){
+  .hero h1{font-size:31px}
+  .cifras b{font-size:27px}
+  .sellos li{font-size:13px;padding:5px 12px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* Puente entre la paleta de este sitio y el bloque común del estándar */
+:root{
+  --c-bloque:var(--papel);
+  --c-linea:var(--linea);
+  --c-radio:var(--r);
+  --c-sombra:var(--sombra);
+  --c-sombra-alta:var(--sombra-alta);
+  --c-suave:var(--gris);
+  --c-marca:var(--agua-osc);
+  --c-tinta:var(--madera);
+  --c-claro:var(--crema);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ESTÁNDAR 15-09-2026 — pedido por Matías, va en TODAS las cafeterías
+   1. Carta partida en bloques visuales, uno por categoría
+   2. Flotantes: contacto a la derecha, delivery a la izquierda
+   3. Redes con el logo real de cada plataforma + rejilla de 3 fotos
+   4. Visítanos: teléfono en tarjeta, "cómo pedir" en chips, sin gasto
+   5. Más movimiento: reveal escalonado y contadores que suben
+
+   Cada sitio define antes sus propias variables --c-*: así este bloque
+   es idéntico en los tres proyectos y hereda la identidad de cada uno.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Carta por bloques ─────────────────────────────────────── */
+.carta-bloque{
+  background:var(--c-bloque);
+  border:1px solid var(--c-linea);
+  border-radius:var(--c-radio);
+  padding:clamp(20px,3vw,30px);
+  margin:0 0 20px;
+  box-shadow:var(--c-sombra);
+}
+.carta-bloque-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+  margin:0 0 18px;padding-bottom:14px;
+  border-bottom:2px solid var(--c-linea);
+}
+.carta-bloque-head h3{margin:0}
+.carta-bloque-n{
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-suave);font-weight:600;white-space:nowrap;
+}
+.carta-bloque .aviso{margin:0 0 16px}
+
+/* ─── 2. Flotantes ─────────────────────────────────────────────── */
+.float{position:fixed;bottom:16px;z-index:800;display:flex;flex-direction:column;gap:10px}
+.float-right{right:16px;align-items:flex-end}
+/* La izquierda arranca más arriba a propósito: abajo del todo, en left:20px,
+   vive el botón del carrito que inyecta carrito.js. El de delivery se apila
+   encima en vez de taparlo. */
+.float-left{left:20px;bottom:88px;align-items:flex-start}
+
+.fab{
+  width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;
+  display:grid;place-content:center;text-decoration:none;
+  box-shadow:0 4px 14px rgba(0,0,0,.18),0 12px 30px -12px rgba(0,0,0,.4);
+  transition:transform .26s var(--fx),box-shadow .26s var(--fx),opacity .3s var(--fx);
+  animation:fabIn .45s var(--fx) both;
+}
+.fab svg{width:25px;height:25px;fill:currentColor;display:block}
+.fab:hover{transform:translateY(-4px) scale(1.07)}
+.fab:active{transform:scale(.92)}
+.fab:nth-child(2){animation-delay:.07s}
+.fab:nth-child(3){animation-delay:.14s}
+@keyframes fabIn{from{opacity:0;transform:translateY(18px) scale(.7)}to{opacity:1;transform:none}}
+
+/* Colores propios de cada plataforma, no inventados */
+.fab-ig{background:linear-gradient(45deg,#F9CE34,#EE2A7B 50%,#6228D7);color:#fff}
+.fab-wsp{background:#25D366;color:#fff}
+.fab-tiktok{background:#010101;color:#fff}
+.fab-tel{color:#fff}
+.fab-delivery{
+  color:#fff;width:auto;height:52px;border-radius:99px;padding:0 20px;gap:10px;
+  grid-auto-flow:column;align-items:center;font-weight:700;font-size:14.5px;
+}
+.fab-delivery svg{width:21px;height:21px}
+.fab-rappi{background:#FF441F}
+.fab-pedidosya{background:#FA0050}
+.fab-ubereats{background:#06C167}
+
+/* El "volver arriba" sólo aparece cuando ya bajaste */
+.fab-top{opacity:0;pointer-events:none}
+.fab-top.show{opacity:1;pointer-events:auto}
+
+/* Etiqueta que se despliega al pasar el mouse */
+.fab[data-label]{position:relative}
+.fab[data-label]::after{
+  content:attr(data-label);
+  position:absolute;right:calc(100% + 10px);top:50%;
+  transform:translateY(-50%) translateX(6px);
+  background:var(--c-tinta);color:var(--c-claro);
+  font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:6px 11px;border-radius:7px;white-space:nowrap;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s var(--fx),transform .22s var(--fx);
+}
+.float-left .fab[data-label]::after{
+  right:auto;left:calc(100% + 10px);transform:translateY(-50%) translateX(-6px);
+}
+.fab[data-label]:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ─── 3. Redes: tarjeta con logo real y rejilla de 3 fotos ─────── */
+.redes{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:18px;padding-top:24px;
+  /* align-items:start para que cada tarjeta mida lo que mide su contenido.
+     Sin esto, la que no lleva rejilla de fotos (la del teléfono) se estira
+     igual que las otras y queda con medio recuadro vacío. */
+  align-items:start;
+}
+.red-card{
+  background:var(--c-bloque);border:1px solid var(--c-linea);
+  border-radius:var(--c-radio);overflow:hidden;box-shadow:var(--c-sombra);
+  display:flex;flex-direction:column;
+  transition:transform .3s var(--fx),box-shadow .3s var(--fx);
+}
+.red-card:hover{transform:translateY(-4px);box-shadow:var(--c-sombra-alta)}
+
+.red-card-head{
+  display:flex;align-items:center;gap:14px;
+  padding:18px 20px;text-decoration:none;color:inherit;
+}
+.red-logo{
+  width:48px;height:48px;flex:none;border-radius:13px;
+  display:grid;place-content:center;color:#fff;
+  transition:transform .3s var(--fx);
+}
+.red-card-head:hover .red-logo{transform:rotate(-6deg) scale(1.07)}
+.red-logo svg{width:27px;height:27px;fill:currentColor;display:block}
+.red-logo-ig{background:linear-gradient(45deg,#F9CE34,#EE2A7B 50%,#6228D7)}
+.red-logo-wsp{background:#25D366}
+.red-logo-tiktok{background:#010101}
+.red-logo-map{background:#EA4335}
+.red-logo-fb{background:#1877F2}
+.red-logo-tel{background:var(--c-marca)}
+
+.red-card-txt{display:flex;flex-direction:column;line-height:1.3;min-width:0;flex:1}
+.red-card-txt b{font-size:18px;overflow-wrap:anywhere}
+.red-card-txt em{font-style:normal;font-size:13.5px;color:var(--c-suave)}
+.red-card-cta{
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-marca);white-space:nowrap;
+  transition:transform .24s var(--fx);
+}
+.red-card-head:hover .red-card-cta{transform:translateX(3px)}
+
+/* La rejilla: 3 fotos reales del local, clicables hacia el perfil */
+.red-grid{
+  position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;
+  margin-top:auto;text-decoration:none;
+}
+.red-grid figure{margin:0;overflow:hidden;aspect-ratio:1/1}
+.red-grid img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .55s var(--fx),filter .35s var(--fx);
+}
+.red-grid::after{
+  content:attr(data-cta);
+  position:absolute;inset:0;display:grid;place-content:center;
+  background:rgba(0,0,0,.52);color:#fff;
+  font-size:14.5px;font-weight:700;letter-spacing:.04em;
+  opacity:0;transition:opacity .3s var(--fx);
+}
+.red-grid:hover img{transform:scale(1.07);filter:brightness(.82)}
+.red-grid:hover::after{opacity:1}
+.red-pie{
+  font-size:12px;color:var(--c-suave);padding:10px 20px 14px;margin:0;
+  border-top:1px solid var(--c-linea);
+}
+
+/* ─── 4. Visítanos: teléfono y "cómo pedir" ────────────────────── */
+.vtel{
+  display:flex;align-items:center;gap:14px;text-decoration:none;
+  background:var(--c-bloque);border:1px solid var(--c-linea);
+  border-radius:var(--c-radio);padding:15px 18px;margin-top:4px;
+  box-shadow:var(--c-sombra);
+  transition:transform .26s var(--fx),box-shadow .26s var(--fx),border-color .26s var(--fx);
+}
+.vtel:hover{transform:translateY(-3px);box-shadow:var(--c-sombra-alta);border-color:var(--c-marca)}
+.vtel-ico{
+  width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-content:center;
+  background:var(--c-marca);color:#fff;
+}
+.vtel-ico svg{width:22px;height:22px;fill:currentColor;display:block}
+.vtel-txt{display:flex;flex-direction:column;line-height:1.3}
+.vtel-txt b{font-size:19px;font-variant-numeric:tabular-nums}
+.vtel-txt em{font-style:normal;font-size:12.5px;color:var(--c-suave)}
+.vtel-flecha{
+  margin-left:auto;color:var(--c-marca);font-size:19px;
+  transition:transform .24s var(--fx);
+}
+.vtel:hover .vtel-flecha{transform:translateX(4px)}
+
+/* Variante sin teléfono: mismo recuadro, tono apagado, sin link */
+.vtel-sin{cursor:default}
+.vtel-sin:hover{transform:none;box-shadow:var(--c-sombra);border-color:var(--c-linea)}
+.vtel-sin .vtel-ico{background:var(--c-suave);opacity:.55}
+.vtel-sin .vtel-txt b{font-size:16px}
+
+.vpedir{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 8px;padding:0;list-style:none}
+.vpedir li{
+  display:flex;align-items:center;gap:8px;
+  background:var(--c-bloque);border:1px solid var(--c-linea);
+  border-radius:99px;padding:8px 15px 8px 11px;font-size:14.5px;font-weight:500;
+  transition:transform .24s var(--fx),border-color .24s var(--fx);
+}
+.vpedir li:hover{transform:translateY(-2px);border-color:var(--c-marca)}
+.vpedir svg{width:17px;height:17px;fill:var(--c-marca);flex:none;display:block}
+
+/* ─── 5. Movimiento ────────────────────────────────────────────── */
+/* Reveal escalonado: cada hijo entra un pelo después que el anterior */
+.stagger > *{opacity:0}
+.stagger.seen > *{
+  animation:subir .5s var(--fx) both;
+  animation-delay:calc(var(--i,0) * 55ms);
+}
+@keyframes subir{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  .fab,.stagger > *{animation:none !important}
+  .stagger > *{opacity:1;transform:none}
+}
+
+@media (max-width:760px){
+  .float{bottom:12px}
+  .float-right{right:12px}
+  .float-left{left:16px;bottom:80px}
+  .fab{width:48px;height:48px}
+  .fab svg{width:23px;height:23px}
+  /* En el teléfono la etiqueta estorba más de lo que ayuda */
+  .fab[data-label]::after{display:none}
+  .fab-delivery{height:48px;padding:0 16px;font-size:13px}
+  .carta-bloque{padding:18px 15px}
+  .red-card-cta{display:none}
+  .redes{grid-template-columns:1fr}
+}
