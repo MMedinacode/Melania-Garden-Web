@@ -721,3 +721,8 @@ h1,h2,h3,h4{
 .cbtn-ig:hover{ border-color:#EE2A7B; }
 
 .fab-wsp svg{ width:25px; height:25px; fill:currentColor; display:block; }
+
+/* Si un dato de la línea chica fuese muy largo, que envuelva ahí y no en el
+   título: un @usuario partido a mitad de palabra en negrita de 18px se ve
+   roto, y en 13,5px pasa desapercibido. */
+.redes .red-card-txt em{ overflow-wrap:anywhere; }
